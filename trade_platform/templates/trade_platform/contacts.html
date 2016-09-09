@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>B2B Export</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'category_list'%}">B2B Export</a>
+    </div>
+
+    <ul class="nav navbar-nav">
+    	<li><a href="{% url 'catalog'%}">Catalog</a></li>
+        <li><a href="{% url 'contacts'%}">Contacts</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-5">
+			<h1>Write to us:</h1>
+			<h3 style="color:green">{{ result }}</h3>
+	        <form method="POST" class="post-form">{% csrf_token %}
+	            {{ form.as_p }}
+	            <button type="submit" class="save btn btn-default">Send</button>
+	        </form>
+        
+		</div>
+		<div class="col-md-7">
+			<h1>Contact us</h1>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2245.0736954103836!2d37.581111!3d55.757222!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a351dc2846b%3A0x87124b4206b709df!2z0JTQvtC8INCd0LDRgNC60L7QvNGE0LjQvdCw!5e0!3m2!1sen!2sus!4v1473177346541" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+</body>
+</html>

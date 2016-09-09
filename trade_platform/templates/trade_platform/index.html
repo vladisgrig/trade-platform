@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>B2B Export</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'category_list'%}">B2B Export</a>
+    </div>
+
+    <ul class="nav navbar-nav">
+    	<li><a href="{% url 'catalog'%}">Catalog</a></li>
+        <li><a href="{% url 'contacts'%}">Contacts</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Welcome to trading platform B2B-EXPORT.COM</h1>
+			<p style="text-align: justify;"><strong>Why purchase from Russia via</strong><strong> B2B-EXPORT.COM? </strong></p>
+			<ul style="text-align: justify;">
+				<li>You purchase direct from producers at the lowest possible price</li>
+				<li>Your deals are concluded quickly and inexpensively, because there is no middle-man</li>
+				<li>The producer guarantees the quality of the goods supplied</li>
+				<li>You purchase from reliable suppliers that have passed the audit conducted by our Platform</li>
+				<li>You can leave confidential comments about each product or purchase request with certainty it will reach the person responsible for exports directly</li>
+				<li>You will encounter no hidden expenses</li>
+				<li>You can follow the progress of the transaction from the placing of the order through the production of the goods to their delivery</li>
+				<li>You can influence the rating that the producer has; and choose only the best, trusted suppliers</li>
+			</ul>
+			<h2>Please, choose category: </h2>
+		</div>
+	</div>
+
+	<div class="row">
+	{% for category in categories %}
+	  <div class="col-md-4">
+	  	<div class="thumbnail">
+	  		<a href="{% url 'goods_list' category_name=category.name %}">
+	  		<img src="{{MEDIA_URL}}{{category.image.url}} " style="height:200px" alt="..." class="img-rounded center-block">
+	  		<div class="caption">
+	  			<h3>{{category.name}}</h3>
+	  		</div>
+	  		</a>
+	  	</div>
+	  </div>
+	{% endfor %}
+	</div>
+</div>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+</body>
+</html>
